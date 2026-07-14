@@ -1,0 +1,249 @@
+{
+  "canvas": { "aspect": "1885:1376" },
+  "nodes": [
+    {
+      "id": "n1",
+      "kind": "box",
+      "bbox": [789, 16, 173, 139],
+      "text": "Data set",
+      "role": "default"
+    },
+    {
+      "id": "n2",
+      "kind": "placeholder",
+      "bbox": [333, 11, 147, 45],
+      "text": "",
+      "role": "default",
+      "placeholder_kind": "equation"
+    },
+    {
+      "id": "n3",
+      "kind": "box",
+      "bbox": [268, 147, 291, 39],
+      "text": "Loss 계산 (latent overshooting)",
+      "role": "default"
+    },
+    {
+      "id": "n4",
+      "kind": "box",
+      "bbox": [254, 216, 65, 29],
+      "text": "θ 업데이트",
+      "role": "default"
+    },
+    {
+      "id": "n5",
+      "kind": "box",
+      "bbox": [248, 240, 95, 21],
+      "text": "model 3개 업데이트",
+      "role": "input"
+    },
+    {
+      "id": "n6",
+      "kind": "placeholder",
+      "bbox": [363, 188, 223, 65],
+      "text": "",
+      "role": "default",
+      "placeholder_kind": "icon"
+    },
+    {
+      "id": "n7",
+      "kind": "box",
+      "bbox": [582, 118, 149, 27],
+      "text": "RSSM 학습되는 안정적 형태",
+      "role": "emphasis"
+    },
+    {
+      "id": "n8",
+      "kind": "placeholder",
+      "bbox": [598, 144, 147, 124],
+      "text": "",
+      "role": "default",
+      "placeholder_kind": "icon"
+    },
+    {
+      "id": "n9",
+      "kind": "box",
+      "bbox": [65, 540, 32, 27],
+      "text": "o_1",
+      "role": "default"
+    },
+    {
+      "id": "n10",
+      "kind": "box",
+      "bbox": [168, 498, 115, 81],
+      "text": "Encoder\nq(s_t | o_≤t, a_<t)",
+      "role": "default"
+    },
+    {
+      "id": "n11",
+      "kind": "box",
+      "bbox": [323, 496, 152, 78],
+      "text": "Planner\na_t = Planner(s_t, p)",
+      "role": "default"
+    },
+    {
+      "id": "n12",
+      "kind": "box",
+      "bbox": [370, 471, 34, 21],
+      "text": "CEM",
+      "role": "emphasis"
+    },
+    {
+      "id": "n13",
+      "kind": "box",
+      "bbox": [467, 464, 32, 21],
+      "text": "MPC",
+      "role": "unknown"
+    },
+    {
+      "id": "n14",
+      "kind": "box",
+      "bbox": [510, 479, 125, 131],
+      "text": "action 반복\n환경이랑 상호작용해서\nr_t^k, o_{t+1}^k 구하기\na_t R번 반복",
+      "role": "default"
+    },
+    {
+      "id": "n15",
+      "kind": "box",
+      "bbox": [659, 535, 162, 70],
+      "text": "r_t, o_{t+1} ← Σ_{k=1}^{R} r_t^k, o_{t+1}^R",
+      "role": "default"
+    },
+    {
+      "id": "n16",
+      "kind": "box",
+      "bbox": [681, 513, 103, 22],
+      "text": "1,t 까지의 저장",
+      "role": "emphasis"
+    },
+    {
+      "id": "n17",
+      "kind": "box",
+      "bbox": [293, 585, 115, 21],
+      "text": "transition, reward model",
+      "role": "input"
+    },
+    {
+      "id": "n18",
+      "kind": "box",
+      "bbox": [272, 614, 210, 23],
+      "text": "Add exploration noise ε ~ p(ε) to the action",
+      "role": "default"
+    },
+    {
+      "id": "n19",
+      "kind": "placeholder",
+      "bbox": [878, 508, 80, 41],
+      "text": "",
+      "role": "emphasis",
+      "placeholder_kind": "equation"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "g1",
+      "arrow": "single",
+      "label": "C번 반복",
+      "style": "elbow"
+    },
+    {
+      "id": "e2",
+      "from": "n3",
+      "to": "n4",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e3",
+      "from": "n9",
+      "to": "n10",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e4",
+      "from": "n10",
+      "to": "n11",
+      "arrow": "single",
+      "label": "s_t",
+      "style": "straight"
+    },
+    {
+      "id": "e5",
+      "from": "n11",
+      "to": "n14",
+      "arrow": "single",
+      "label": "a_t",
+      "style": "straight"
+    },
+    {
+      "id": "e6",
+      "from": "n14",
+      "to": "n15",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e7",
+      "from": "n15",
+      "to": "n10",
+      "arrow": "single",
+      "label": "Loop t=1 ... ⌈T/R⌉",
+      "style": "elbow"
+    },
+    {
+      "id": "e8",
+      "from": "g3",
+      "to": "n19",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e9",
+      "from": "n19",
+      "to": "n1",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e10",
+      "from": "n17",
+      "to": "n11",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e11",
+      "from": "n18",
+      "to": "n14",
+      "arrow": "single",
+      "style": "straight"
+    }
+  ],
+  "containers": [
+    {
+      "id": "g1",
+      "bbox": [40, 110, 728, 167],
+      "title": "1. Model fitting (World model 학습)",
+      "children": ["n3", "n4", "n5", "n6", "n7", "n8"],
+      "role": "phase"
+    },
+    {
+      "id": "g2",
+      "bbox": [38, 328, 931, 389],
+      "title": "2. Data Collection",
+      "children": ["g3", "n9", "n19"],
+      "role": "phase"
+    },
+    {
+      "id": "g3",
+      "bbox": [158, 401, 694, 264],
+      "title": "",
+      "children": ["n10", "n11", "n12", "n13", "n14", "n15", "n16", "n17", "n18"],
+      "role": "default"
+    }
+  ],
+  "annotations": []
+}
