@@ -1,0 +1,30 @@
+{
+ "note": "gates.json(17:07, layout 17:12 수정 전) 대체 — 박스 기준 집계 병기. AC2 정의(손볼 박스 수)와 정합.",
+ "gate1": {
+  "ex01": {
+   "uncorrected_pairs": 5,
+   "offending_boxes_from_pairs": [
+    "n15"
+   ],
+   "overcorrected_boxes": [
+    "n4"
+   ],
+   "problem_boxes_total": 2,
+   "boxes_total": 40,
+   "ratio": 0.05,
+   "pass_le_10pct": true
+  },
+  "ex02": {
+   "uncorrected_pairs": 0,
+   "offending_boxes_from_pairs": [],
+   "overcorrected_boxes": [
+    "n6"
+   ],
+   "problem_boxes_total": 1,
+   "boxes_total": 15,
+   "ratio": 0.067,
+   "pass_le_10pct": true
+  }
+ },
+ "tol_sweep_note": "tol 10~20 상향은 count 게이트를 통과시키나 클러스터 순도(pair F1)가 σ=1에서 0.33~0.62로 붕괴(단일연결 chaining 오병합) → 기각. 기본 tol=7.2 유지. 근본 해법=컨테이너 스코프 클러스터링(M1 백로그)."
+}

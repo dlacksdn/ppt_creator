@@ -1,0 +1,367 @@
+{
+  "canvas": {
+    "aspect": "1885:1376"
+  },
+  "nodes": [
+    {
+      "id": "n1",
+      "kind": "box",
+      "bbox": [
+        790,
+        21,
+        170,
+        127
+      ],
+      "text": "Data Set",
+      "role": "default",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n2",
+      "kind": "placeholder",
+      "bbox": [
+        332,
+        11,
+        143,
+        40
+      ],
+      "text": "{(o_t,a_t,r_t)_t=k^L+k}_i=1^B",
+      "role": "default",
+      "placeholder_kind": "equation",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n3",
+      "kind": "box",
+      "bbox": [
+        265,
+        154,
+        175,
+        24
+      ],
+      "text": "Loss 계산 (latent overshooting)",
+      "role": "default",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n4",
+      "kind": "box",
+      "bbox": [
+        257,
+        218,
+        65,
+        24
+      ],
+      "text": "θ 업데이트",
+      "role": "default",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n5",
+      "kind": "placeholder",
+      "bbox": [
+        353,
+        188,
+        236,
+        72
+      ],
+      "text": "latent overshooting loss 수식 (7)",
+      "role": "default",
+      "placeholder_kind": "equation",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n6",
+      "kind": "placeholder",
+      "bbox": [
+        594,
+        143,
+        164,
+        127
+      ],
+      "text": "(c) Recurrent state-space model (RSSM) figure",
+      "role": "default",
+      "placeholder_kind": "icon",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n7",
+      "kind": "box",
+      "bbox": [
+        69,
+        546,
+        32,
+        21
+      ],
+      "text": "o1",
+      "role": "default",
+      "intent_row": "collect_chain",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n8",
+      "kind": "box",
+      "bbox": [
+        167,
+        499,
+        117,
+        80
+      ],
+      "text": "Encoder q(s_t|o_<=t, a_<t)",
+      "role": "default",
+      "intent_row": "collect_chain",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n9",
+      "kind": "box",
+      "bbox": [
+        321,
+        499,
+        154,
+        77
+      ],
+      "text": "Planner a_t = Planner(s_t, P)",
+      "role": "default",
+      "intent_row": "collect_chain",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n10",
+      "kind": "box",
+      "bbox": [
+        509,
+        480,
+        127,
+        125
+      ],
+      "text": "action 선별 환경에서 상상롤아웃해서 v_t^k, o_t+1^k 고르기 a_t R번 반복",
+      "role": "emphasis",
+      "intent_row": "collect_chain",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n11",
+      "kind": "box",
+      "bbox": [
+        658,
+        528,
+        159,
+        61
+      ],
+      "text": "v_t, o_t+1 <- Σ_k=1^R v_t^k, o_t+1^R",
+      "role": "default",
+      "intent_row": "collect_chain",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n12",
+      "kind": "placeholder",
+      "bbox": [
+        869,
+        507,
+        81,
+        29
+      ],
+      "text": "{(o_t,a_t,r_t)}_t=1^T",
+      "role": "default",
+      "placeholder_kind": "equation",
+      "intent_row": "collect_chain",
+      "intent_col": null,
+      "size_class": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "g1",
+      "arrow": "single",
+      "label": "C번 반복",
+      "style": "elbow"
+    },
+    {
+      "id": "e2",
+      "from": "n3",
+      "to": "n4",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e3",
+      "from": "n7",
+      "to": "n8",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e4",
+      "from": "n8",
+      "to": "n9",
+      "arrow": "single",
+      "label": "s_t",
+      "style": "straight"
+    },
+    {
+      "id": "e5",
+      "from": "n9",
+      "to": "n10",
+      "arrow": "single",
+      "label": "a_t",
+      "style": "straight"
+    },
+    {
+      "id": "e6",
+      "from": "n10",
+      "to": "n11",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e7",
+      "from": "n11",
+      "to": "n12",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e8",
+      "from": "n11",
+      "to": "n8",
+      "arrow": "single",
+      "label": "Loop t=1 ... ⌈T/R⌉",
+      "style": "elbow"
+    },
+    {
+      "id": "e9",
+      "from": "n12",
+      "to": "n1",
+      "arrow": "single",
+      "style": "straight"
+    }
+  ],
+  "containers": [
+    {
+      "id": "g1",
+      "bbox": [
+        40,
+        109,
+        727,
+        167
+      ],
+      "title": "1. Model fitting (World model 3종)",
+      "children": [
+        "n3",
+        "n4",
+        "n5",
+        "n6"
+      ],
+      "role": "phase",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "g2",
+      "bbox": [
+        40,
+        329,
+        923,
+        382
+      ],
+      "title": "2. Data Collection",
+      "children": [
+        "n7",
+        "g3",
+        "n12"
+      ],
+      "role": "phase",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "g3",
+      "bbox": [
+        158,
+        400,
+        691,
+        266
+      ],
+      "title": "",
+      "children": [
+        "n8",
+        "n9",
+        "n10",
+        "n11"
+      ],
+      "role": "default",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    }
+  ],
+  "annotations": [
+    {
+      "id": "a1",
+      "kind": "note",
+      "bbox": [
+        297,
+        583,
+        111,
+        19
+      ],
+      "text": "transition, reward model"
+    },
+    {
+      "id": "a2",
+      "kind": "note",
+      "bbox": [
+        271,
+        615,
+        210,
+        19
+      ],
+      "text": "Add exploration noise ε~p(ε) to the action"
+    },
+    {
+      "id": "a3",
+      "kind": "note",
+      "bbox": [
+        249,
+        247,
+        88,
+        16
+      ],
+      "text": "model 3개 앙상블"
+    },
+    {
+      "id": "a4",
+      "kind": "note",
+      "bbox": [
+        583,
+        119,
+        175,
+        21
+      ],
+      "text": "RSSM 구성하는 안정적 형태"
+    }
+  ]
+}

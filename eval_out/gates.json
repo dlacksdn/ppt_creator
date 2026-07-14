@@ -1,0 +1,216 @@
+{
+  "generated": "2026-07-14 (M0b 통합 실행)",
+  "gate1_count_corrections_golden_b1": {
+    "ex01": {
+      "golden": "tests/fixtures/example-01.golden.ir.json",
+      "mode": "b1",
+      "params": {
+        "visual_tol": 6,
+        "move_tol": 12
+      },
+      "uncorrected_pairs": {
+        "row": 5,
+        "col": 7,
+        "total": 12,
+        "detail": [
+          {
+            "axis": "row",
+            "group": "acm_top",
+            "ids": [
+              "n10",
+              "n15"
+            ],
+            "dev": 12.0
+          },
+          {
+            "axis": "row",
+            "group": "acm_top",
+            "ids": [
+              "n15",
+              "n6"
+            ],
+            "dev": 12.0
+          },
+          {
+            "axis": "row",
+            "group": "acm_top",
+            "ids": [
+              "n15",
+              "n7"
+            ],
+            "dev": 12.0
+          },
+          {
+            "axis": "row",
+            "group": "acm_top",
+            "ids": [
+              "n15",
+              "n8"
+            ],
+            "dev": 12.0
+          },
+          {
+            "axis": "row",
+            "group": "acm_top",
+            "ids": [
+              "n15",
+              "n9"
+            ],
+            "dev": 11.5
+          },
+          {
+            "axis": "col",
+            "group": "ph1",
+            "ids": [
+              "g8",
+              "n18"
+            ],
+            "dev": 8.0
+          },
+          {
+            "axis": "col",
+            "group": "ph1",
+            "ids": [
+              "g8",
+              "n19"
+            ],
+            "dev": 8.5
+          },
+          {
+            "axis": "col",
+            "group": "ph1",
+            "ids": [
+              "g8",
+              "n20"
+            ],
+            "dev": 8.5
+          },
+          {
+            "axis": "col",
+            "group": "ph3",
+            "ids": [
+              "g10",
+              "n26"
+            ],
+            "dev": 8.0
+          },
+          {
+            "axis": "col",
+            "group": "ph3",
+            "ids": [
+              "g10",
+              "n27"
+            ],
+            "dev": 7.5
+          },
+          {
+            "axis": "col",
+            "group": "ph3",
+            "ids": [
+              "g10",
+              "n28"
+            ],
+            "dev": 7.5
+          },
+          {
+            "axis": "col",
+            "group": "ph3",
+            "ids": [
+              "g10",
+              "n29"
+            ],
+            "dev": 8.0
+          }
+        ]
+      },
+      "overcorrected_boxes": {
+        "count": 1,
+        "ids": [
+          "n4"
+        ]
+      },
+      "sum_unc_plus_over": 13,
+      "denominators": {
+        "boxes_total": 40,
+        "intent_pairs_total": 81,
+        "units_total(pairs+boxes)": 121
+      },
+      "ratio_vs_boxes": 0.325,
+      "ratio_vs_units": 0.1074,
+      "pass_10pct_vs_boxes": false,
+      "pass_10pct_vs_units": false,
+      "size_report_aux": {
+        "uncorrected_pairs": 1,
+        "overcorrected_ids": []
+      }
+    },
+    "ex02": {
+      "golden": "tests/fixtures/example-02.golden.ir.json",
+      "mode": "b1",
+      "params": {
+        "visual_tol": 6,
+        "move_tol": 12
+      },
+      "uncorrected_pairs": {
+        "row": 0,
+        "col": 0,
+        "total": 0,
+        "detail": []
+      },
+      "overcorrected_boxes": {
+        "count": 1,
+        "ids": [
+          "n6"
+        ]
+      },
+      "sum_unc_plus_over": 1,
+      "denominators": {
+        "boxes_total": 15,
+        "intent_pairs_total": 15,
+        "units_total(pairs+boxes)": 30
+      },
+      "ratio_vs_boxes": 0.0667,
+      "ratio_vs_units": 0.0333,
+      "pass_10pct_vs_boxes": true,
+      "pass_10pct_vs_units": true,
+      "size_report_aux": {
+        "uncorrected_pairs": 0,
+        "overcorrected_ids": []
+      }
+    }
+  },
+  "gate1_note": "판정식 = (미교정 쌍수 + 과교정 박스수) ≤ 전체의 10%. '전체' 분모 2해석 병기: boxes_total(노드+컨테이너 수) 기준과 units_total(intent 쌍수+박스수) 기준. tol·판정 임계는 인터페이스 계약 기본값(row/col_tol=max(6,0.30×h_med), visual_tol=6, move_tol=12).",
+  "gate2_elbow": {
+    "ex01-golden-b1": {
+      "detail_file": "eval_out/elbow-gate-ex01-golden-b1.json",
+      "edges_total": 22,
+      "penetration": {
+        "count": 0,
+        "ratio": 0.0,
+        "pass_le_10pct": true
+      },
+      "excessive_crossings": {
+        "count": 0,
+        "ratio": 0.0,
+        "pass_le_15pct": true
+      },
+      "pass": true
+    },
+    "ex01-recog-b1": {
+      "detail_file": "eval_out/elbow-gate-ex01-recog-b1.json",
+      "edges_total": 22,
+      "penetration": {
+        "count": 0,
+        "ratio": 0.0,
+        "pass_le_10pct": true
+      },
+      "excessive_crossings": {
+        "count": 0,
+        "ratio": 0.0,
+        "pass_le_15pct": true
+      },
+      "pass": true
+    }
+  },
+  "gate2_note": "관통 ≤10% AND 과다교차(동일 커넥터 3회+) ≤15%, ex01 밀집 케이스. 상세는 eval/elbow_gate.py docstring."
+}

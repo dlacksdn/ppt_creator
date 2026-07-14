@@ -1,0 +1,255 @@
+{
+  "rec_path": "ir_out/example-02.ir.json",
+  "golden_path": "tests/fixtures/example-02.golden.ir.json",
+  "boxes": {
+    "golden_count": 15,
+    "rec_count": 17,
+    "matched": 15,
+    "recall": 1.0,
+    "precision": 0.8823529411764706,
+    "f1": 0.9375,
+    "missing_ids": [],
+    "extra_ids": [
+      "n13",
+      "n14"
+    ]
+  },
+  "centroid_permil": {
+    "median": 3.0,
+    "p90": 7.045816602354799
+  },
+  "iou": {
+    "median": 0.9176348187966014,
+    "below_05_count": 0,
+    "below_05_ratio": 0.0
+  },
+  "role": {
+    "confusion": {
+      "default": {
+        "default": 11,
+        "emphasis": 1
+      },
+      "emphasis": {
+        "default": 1
+      },
+      "phase": {
+        "default": 2
+      }
+    },
+    "errors": 4,
+    "error_rate": 0.26666666666666666,
+    "mismatches": [
+      {
+        "gold_id": "n10",
+        "rec_id": "n10",
+        "gold_role": "emphasis",
+        "rec_role": "default"
+      },
+      {
+        "gold_id": "n12",
+        "rec_id": "n12",
+        "gold_role": "default",
+        "rec_role": "emphasis"
+      },
+      {
+        "gold_id": "g1",
+        "rec_id": "g1",
+        "gold_role": "phase",
+        "rec_role": "default"
+      },
+      {
+        "gold_id": "g2",
+        "rec_id": "g2",
+        "gold_role": "phase",
+        "rec_role": "default"
+      }
+    ]
+  },
+  "edges": {
+    "golden_count": 9,
+    "rec_count": 11,
+    "matched": 9,
+    "recall": 1.0,
+    "precision": 0.8181818181818182,
+    "missing_ids": [],
+    "extra_ids": [
+      "e10",
+      "e11"
+    ]
+  },
+  "diff": {
+    "missing_boxes": 0,
+    "extra_boxes": 2,
+    "missing_edges": 0,
+    "extra_edges": 2,
+    "text_mismatch": 5,
+    "total": 9
+  },
+  "pairs": [
+    {
+      "gold_id": "n1",
+      "rec_id": "n1",
+      "gold_text": "Data Set",
+      "rec_text": "Data Set",
+      "text_match": true,
+      "centroid_dist_permil": 4.74,
+      "iou": 0.9176,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n2",
+      "rec_id": "n2",
+      "gold_text": "{(o_t,a_t,r_t)_t=k^L+k}_i=1^B",
+      "rec_text": "{(o_t, a_t, r_t)_{t=k}^{L+k}}_{i=1}^{B}",
+      "text_match": true,
+      "centroid_dist_permil": 3.0,
+      "iou": 0.8381,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n3",
+      "rec_id": "n3",
+      "gold_text": "Loss 계산 (latent overshooting)",
+      "rec_text": "Loss 계산 (latent overshooting)",
+      "text_match": true,
+      "centroid_dist_permil": 4.12,
+      "iou": 0.8813,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n4",
+      "rec_id": "n4",
+      "gold_text": "θ 업데이트",
+      "rec_text": "θ 업데이트",
+      "text_match": true,
+      "centroid_dist_permil": 2.24,
+      "iou": 0.8101,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n5",
+      "rec_id": "n5",
+      "gold_text": "latent overshooting loss 수식 (7)",
+      "rec_text": "",
+      "text_match": false,
+      "centroid_dist_permil": 2.92,
+      "iou": 0.9239,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n6",
+      "rec_id": "n6",
+      "gold_text": "(c) Recurrent state-space model (RSSM) figure",
+      "rec_text": "(c) Recurrent state-space model (RSSM)",
+      "text_match": false,
+      "centroid_dist_permil": 7.57,
+      "iou": 0.8725,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n7",
+      "rec_id": "n7",
+      "gold_text": "o1",
+      "rec_text": "o₁",
+      "text_match": false,
+      "centroid_dist_permil": 6.26,
+      "iou": 0.5603,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n8",
+      "rec_id": "n8",
+      "gold_text": "Encoder q(s_t|o_<=t, a_<t)",
+      "rec_text": "Encoder\nq(s_t | o_≤t, a_<t)",
+      "text_match": true,
+      "centroid_dist_permil": 3.64,
+      "iou": 0.8841,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n9",
+      "rec_id": "n9",
+      "gold_text": "Planner a_t = Planner(s_t, P)",
+      "rec_text": "Planner\na_t = Planner(s_t, p)",
+      "text_match": true,
+      "centroid_dist_permil": 0.5,
+      "iou": 0.9447,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n10",
+      "rec_id": "n10",
+      "gold_text": "action 선별 환경에서 상상롤아웃해서 v_t^k, o_t+1^k 고르기 a_t R번 반복",
+      "rec_text": "action repeat\n환경이랑 상호작용해서\nr_t^k, o_{t+1}^k 구하기\na_t R번 반복",
+      "text_match": false,
+      "centroid_dist_permil": 1.5,
+      "iou": 0.9764,
+      "gold_role": "emphasis",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n11",
+      "rec_id": "n11",
+      "gold_text": "v_t, o_t+1 <- Σ_k=1^R v_t^k, o_t+1^R",
+      "rec_text": "r_t, o_{t+1} ← Σ_{k=1}^{R} r_t^k, o_{t+1}^R",
+      "text_match": false,
+      "centroid_dist_permil": 2.24,
+      "iou": 0.9252,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n12",
+      "rec_id": "n12",
+      "gold_text": "{(o_t,a_t,r_t)}_t=1^T",
+      "rec_text": "{(o_t, a_t, r_t)_{t=1}^{T}}",
+      "text_match": true,
+      "centroid_dist_permil": 3.54,
+      "iou": 0.8899,
+      "gold_role": "default",
+      "rec_role": "emphasis"
+    },
+    {
+      "gold_id": "g1",
+      "rec_id": "g1",
+      "gold_text": "1. Model fitting (World model 3종)",
+      "rec_text": "1. Model fitting (World model 3종)",
+      "text_match": true,
+      "centroid_dist_permil": 0.5,
+      "iou": 0.994,
+      "gold_role": "phase",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "g2",
+      "rec_id": "g2",
+      "gold_text": "2. Data Collection",
+      "rec_text": "2. Data Collection",
+      "text_match": true,
+      "centroid_dist_permil": 2.24,
+      "iou": 0.9905,
+      "gold_role": "phase",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "g3",
+      "rec_id": "g3",
+      "gold_text": "",
+      "rec_text": "",
+      "text_match": true,
+      "centroid_dist_permil": 8.5,
+      "iou": 0.9333,
+      "gold_role": "default",
+      "rec_role": "default"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "routes_path": "outputs/ex01-golden-b1.routes.json",
+  "ir_path": "tests/fixtures/example-01.golden.ir.json",
+  "normalize_mode": "b1",
+  "params": {
+    "pen_thresh": 0.1,
+    "cross_thresh": 0.15,
+    "cross_limit": 3
+  },
+  "edges_total": 22,
+  "penetration": {
+    "edge_count": 0,
+    "ratio": 0.0,
+    "pass": true,
+    "edges": []
+  },
+  "crossings": {
+    "excessive_count": 0,
+    "excessive_ids": [],
+    "ratio": 0.0,
+    "pass": true,
+    "per_edge": {
+      "e13": 1,
+      "e9": 1
+    },
+    "crossing_pairs": [
+      [
+        "e9",
+        "e13",
+        1
+      ]
+    ]
+  },
+  "pass": true
+}

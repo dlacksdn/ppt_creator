@@ -1,0 +1,846 @@
+{
+  "canvas": {
+    "aspect": "2366:1402"
+  },
+  "nodes": [
+    {
+      "id": "n1",
+      "kind": "box",
+      "bbox": [
+        108,
+        98,
+        90,
+        25
+      ],
+      "text": "MineDojo Simulator",
+      "role": "default",
+      "intent_row": null,
+      "intent_col": "ds_chain",
+      "size_class": null
+    },
+    {
+      "id": "n2",
+      "kind": "box",
+      "bbox": [
+        78,
+        143,
+        155,
+        23
+      ],
+      "text": "Unbiased Atomic Actions (uniform dist)",
+      "role": "default",
+      "intent_row": null,
+      "intent_col": "ds_chain",
+      "size_class": null
+    },
+    {
+      "id": "n3",
+      "kind": "box",
+      "bbox": [
+        118,
+        183,
+        55,
+        20
+      ],
+      "text": "MiniCPM",
+      "role": "default",
+      "intent_row": null,
+      "intent_col": "ds_chain",
+      "size_class": null
+    },
+    {
+      "id": "n4",
+      "kind": "box",
+      "bbox": [
+        90,
+        213,
+        138,
+        33
+      ],
+      "text": "GF-Minecraft Dataset (video, keyboard K, Mouse M, prompt P)",
+      "role": "emphasis",
+      "intent_row": null,
+      "intent_col": "ds_chain",
+      "size_class": null
+    },
+    {
+      "id": "n5",
+      "kind": "box",
+      "bbox": [
+        395,
+        90,
+        545,
+        28
+      ],
+      "text": "Backbone Feature F (intermediate latent - prompt already fused)",
+      "role": "default",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n6",
+      "kind": "box",
+      "bbox": [
+        408,
+        163,
+        70,
+        23
+      ],
+      "text": "Mouse Movement M",
+      "role": "input",
+      "intent_row": "acm_top",
+      "intent_col": "acm_in",
+      "size_class": null
+    },
+    {
+      "id": "n7",
+      "kind": "box",
+      "bbox": [
+        508,
+        160,
+        60,
+        25
+      ],
+      "text": "Grouping (w=3)",
+      "role": "default",
+      "intent_row": "acm_top",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n8",
+      "kind": "box",
+      "bbox": [
+        603,
+        155,
+        58,
+        35
+      ],
+      "text": "Repeat (align length)",
+      "role": "default",
+      "intent_row": "acm_top",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n9",
+      "kind": "box",
+      "bbox": [
+        693,
+        163,
+        73,
+        23
+      ],
+      "text": "Concatenate with F",
+      "role": "default",
+      "intent_row": "acm_top",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n10",
+      "kind": "box",
+      "bbox": [
+        785,
+        150,
+        45,
+        43
+      ],
+      "text": "MLP -> Temporal Self-Attention",
+      "role": "default",
+      "intent_row": "acm_top",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n11",
+      "kind": "box",
+      "bbox": [
+        405,
+        213,
+        65,
+        20
+      ],
+      "text": "Keyboard Action K",
+      "role": "input",
+      "intent_row": "acm_bottom",
+      "intent_col": "acm_in",
+      "size_class": null
+    },
+    {
+      "id": "n12",
+      "kind": "box",
+      "bbox": [
+        500,
+        200,
+        70,
+        30
+      ],
+      "text": "Embed + Pos. Encoding",
+      "role": "default",
+      "intent_row": "acm_bottom",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n13",
+      "kind": "box",
+      "bbox": [
+        600,
+        208,
+        63,
+        23
+      ],
+      "text": "Grouping (w=3)",
+      "role": "default",
+      "intent_row": "acm_bottom",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n14",
+      "kind": "box",
+      "bbox": [
+        703,
+        203,
+        90,
+        33
+      ],
+      "text": "Cross-Attention (K=key/Value, F=Query)",
+      "role": "default",
+      "intent_row": "acm_bottom",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n15",
+      "kind": "box",
+      "bbox": [
+        882,
+        153,
+        48,
+        22
+      ],
+      "text": "Fused Feature",
+      "role": "output",
+      "intent_row": "acm_top",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n16",
+      "kind": "box",
+      "bbox": [
+        50,
+        323,
+        128,
+        43
+      ],
+      "text": "Open-Domain Data (internet videos, no action labels)",
+      "role": "default",
+      "intent_row": "phase_src",
+      "intent_col": "ph0",
+      "size_class": "src_box"
+    },
+    {
+      "id": "n17",
+      "kind": "box",
+      "bbox": [
+        75,
+        428,
+        75,
+        23
+      ],
+      "text": "Base Model",
+      "role": "default",
+      "intent_row": "phase_base",
+      "intent_col": "ph0",
+      "size_class": "inner_sm"
+    },
+    {
+      "id": "n18",
+      "kind": "box",
+      "bbox": [
+        238,
+        323,
+        128,
+        38
+      ],
+      "text": "GF-Minecraft (action-labeled)",
+      "role": "default",
+      "intent_row": "phase_src",
+      "intent_col": "ph1",
+      "size_class": "src_box"
+    },
+    {
+      "id": "n19",
+      "kind": "box",
+      "bbox": [
+        260,
+        430,
+        75,
+        23
+      ],
+      "text": "Base Model",
+      "role": "default",
+      "intent_row": "phase_base",
+      "intent_col": "ph1",
+      "size_class": "inner_sm"
+    },
+    {
+      "id": "n20",
+      "kind": "box",
+      "bbox": [
+        260,
+        463,
+        75,
+        23
+      ],
+      "text": "LoRA",
+      "role": "default",
+      "intent_row": "phase_lora",
+      "intent_col": "ph1",
+      "size_class": "inner_sm"
+    },
+    {
+      "id": "n21",
+      "kind": "box",
+      "bbox": [
+        435,
+        325,
+        128,
+        38
+      ],
+      "text": "GF-Minecraft (action-labeled)",
+      "role": "default",
+      "intent_row": "phase_src",
+      "intent_col": "ph2",
+      "size_class": "src_box"
+    },
+    {
+      "id": "n22",
+      "kind": "box",
+      "bbox": [
+        465,
+        433,
+        75,
+        23
+      ],
+      "text": "Base Model",
+      "role": "default",
+      "intent_row": "phase_base",
+      "intent_col": "ph2",
+      "size_class": "inner_sm"
+    },
+    {
+      "id": "n23",
+      "kind": "box",
+      "bbox": [
+        465,
+        465,
+        75,
+        23
+      ],
+      "text": "LoRA",
+      "role": "default",
+      "intent_row": "phase_lora",
+      "intent_col": "ph2",
+      "size_class": "inner_sm"
+    },
+    {
+      "id": "n24",
+      "kind": "box",
+      "bbox": [
+        465,
+        498,
+        78,
+        30
+      ],
+      "text": "Action Control Module",
+      "role": "default",
+      "intent_row": "phase_acm",
+      "intent_col": "ph2",
+      "size_class": "acm_box"
+    },
+    {
+      "id": "n25",
+      "kind": "box",
+      "bbox": [
+        645,
+        328,
+        53,
+        20
+      ],
+      "text": "keyboard / mouse",
+      "role": "default",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "n26",
+      "kind": "box",
+      "bbox": [
+        708,
+        325,
+        133,
+        40
+      ],
+      "text": "Open-Domain Prompt (new unseen scene)",
+      "role": "default",
+      "intent_row": "phase_src",
+      "intent_col": "ph3",
+      "size_class": "src_box"
+    },
+    {
+      "id": "n27",
+      "kind": "box",
+      "bbox": [
+        738,
+        428,
+        75,
+        23
+      ],
+      "text": "Base Model",
+      "role": "default",
+      "intent_row": "phase_base",
+      "intent_col": "ph3",
+      "size_class": "inner_sm"
+    },
+    {
+      "id": "n28",
+      "kind": "box",
+      "bbox": [
+        738,
+        463,
+        75,
+        23
+      ],
+      "text": "LoRA",
+      "role": "default",
+      "intent_row": "phase_lora",
+      "intent_col": "ph3",
+      "size_class": "inner_sm"
+    },
+    {
+      "id": "n29",
+      "kind": "box",
+      "bbox": [
+        738,
+        493,
+        75,
+        30
+      ],
+      "text": "Action Control Module",
+      "role": "default",
+      "intent_row": "phase_acm",
+      "intent_col": "ph3",
+      "size_class": "acm_box"
+    },
+    {
+      "id": "n30",
+      "kind": "box",
+      "bbox": [
+        870,
+        453,
+        100,
+        55
+      ],
+      "text": "Output Action-Controllable Open-Domain Game Video",
+      "role": "emphasis",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "n1",
+      "to": "n2",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e2",
+      "from": "n2",
+      "to": "n3",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e3",
+      "from": "n3",
+      "to": "n4",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e4",
+      "from": "n5",
+      "to": "g5",
+      "arrow": "single",
+      "label": "Down",
+      "style": "straight"
+    },
+    {
+      "id": "e5",
+      "from": "n6",
+      "to": "n7",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e6",
+      "from": "n7",
+      "to": "n8",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e7",
+      "from": "n8",
+      "to": "n9",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e8",
+      "from": "n9",
+      "to": "n10",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e9",
+      "from": "n10",
+      "to": "n15",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e10",
+      "from": "n11",
+      "to": "n12",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e11",
+      "from": "n12",
+      "to": "n13",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e12",
+      "from": "n13",
+      "to": "n14",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e13",
+      "from": "n14",
+      "to": "n15",
+      "arrow": "single",
+      "style": "elbow"
+    },
+    {
+      "id": "e14",
+      "from": "n15",
+      "to": "n5",
+      "arrow": "single",
+      "label": "Up",
+      "style": "elbow"
+    },
+    {
+      "id": "e15",
+      "from": "n16",
+      "to": "g7",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e16",
+      "from": "n18",
+      "to": "g8",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e17",
+      "from": "n21",
+      "to": "g9",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e18",
+      "from": "n26",
+      "to": "g10",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e19",
+      "from": "g7",
+      "to": "g8",
+      "arrow": "single",
+      "label": "copy trained model",
+      "style": "straight"
+    },
+    {
+      "id": "e20",
+      "from": "g8",
+      "to": "g9",
+      "arrow": "single",
+      "label": "copy trained model",
+      "style": "straight"
+    },
+    {
+      "id": "e21",
+      "from": "n25",
+      "to": "g10",
+      "arrow": "single",
+      "style": "straight"
+    },
+    {
+      "id": "e22",
+      "from": "g10",
+      "to": "n30",
+      "arrow": "single",
+      "style": "straight"
+    }
+  ],
+  "containers": [
+    {
+      "id": "g1",
+      "bbox": [
+        14,
+        15,
+        974,
+        565
+      ],
+      "title": "",
+      "children": [
+        "g2",
+        "g6"
+      ],
+      "role": "default",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "g2",
+      "bbox": [
+        28,
+        31,
+        948,
+        246
+      ],
+      "title": "WHAT : Model Architecture (Structure only)",
+      "children": [
+        "g3",
+        "g4"
+      ],
+      "role": "default",
+      "intent_row": null,
+      "intent_col": "sections",
+      "size_class": null
+    },
+    {
+      "id": "g3",
+      "bbox": [
+        48,
+        63,
+        220,
+        185
+      ],
+      "title": "Data Source : GF-Minecraft",
+      "children": [
+        "n1",
+        "n2",
+        "n3",
+        "n4"
+      ],
+      "role": "default",
+      "intent_row": "what_band",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "g4",
+      "bbox": [
+        298,
+        63,
+        675,
+        192
+      ],
+      "title": "Latent Video Diffusion Transformer (VAE compression r=4)",
+      "children": [
+        "n5",
+        "g5",
+        "n15"
+      ],
+      "role": "default",
+      "intent_row": "what_band",
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "g5",
+      "bbox": [
+        400,
+        133,
+        435,
+        105
+      ],
+      "title": "Action Control Module",
+      "children": [
+        "n6",
+        "n7",
+        "n8",
+        "n9",
+        "n10",
+        "n11",
+        "n12",
+        "n13",
+        "n14"
+      ],
+      "role": "default",
+      "intent_row": null,
+      "intent_col": null,
+      "size_class": null
+    },
+    {
+      "id": "g6",
+      "bbox": [
+        28,
+        295,
+        948,
+        280
+      ],
+      "title": "How : Multi-Phase Training then inference (Style-Action Decoupling)",
+      "children": [
+        "n16",
+        "n18",
+        "n21",
+        "n25",
+        "n26",
+        "n30",
+        "g7",
+        "g8",
+        "g9",
+        "g10"
+      ],
+      "role": "default",
+      "intent_row": null,
+      "intent_col": "sections",
+      "size_class": null
+    },
+    {
+      "id": "g7",
+      "bbox": [
+        50,
+        388,
+        128,
+        152
+      ],
+      "title": "Phase #0 Pre-train",
+      "children": [
+        "n17"
+      ],
+      "role": "phase",
+      "intent_row": "phase_band",
+      "intent_col": "ph0",
+      "size_class": "phase_box"
+    },
+    {
+      "id": "g8",
+      "bbox": [
+        238,
+        390,
+        128,
+        150
+      ],
+      "title": "Phase #1 Train LoRA",
+      "children": [
+        "n19",
+        "n20"
+      ],
+      "role": "phase",
+      "intent_row": "phase_band",
+      "intent_col": "ph1",
+      "size_class": "phase_box"
+    },
+    {
+      "id": "g9",
+      "bbox": [
+        438,
+        392,
+        125,
+        150
+      ],
+      "title": "Phase #2 Train Action Module",
+      "children": [
+        "n22",
+        "n23",
+        "n24"
+      ],
+      "role": "phase",
+      "intent_row": "phase_band",
+      "intent_col": "ph2",
+      "size_class": "phase_box"
+    },
+    {
+      "id": "g10",
+      "bbox": [
+        708,
+        392,
+        130,
+        158
+      ],
+      "title": "Phase #3 Inference",
+      "children": [
+        "n27",
+        "n28",
+        "n29"
+      ],
+      "role": "phase",
+      "intent_row": "phase_band",
+      "intent_col": "ph3",
+      "size_class": "phase_box"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "a1",
+      "kind": "legend",
+      "bbox": [
+        873,
+        310,
+        115,
+        90
+      ],
+      "items": [
+        "Trainable (training only)",
+        "Frozen (training only)",
+        "Used in inference (no training)"
+      ]
+    },
+    {
+      "id": "a2",
+      "kind": "note",
+      "bbox": [
+        30,
+        300,
+        180,
+        13
+      ],
+      "text": "(All phases operate on the architecture in what)"
+    }
+  ]
+}

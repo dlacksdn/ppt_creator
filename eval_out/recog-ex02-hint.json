@@ -1,0 +1,251 @@
+{
+  "rec_path": "ir_out/example-02.hint.ir.json",
+  "golden_path": "tests/fixtures/example-02.golden.ir.json",
+  "boxes": {
+    "golden_count": 15,
+    "rec_count": 22,
+    "matched": 15,
+    "recall": 1.0,
+    "precision": 0.6818181818181818,
+    "f1": 0.8108108108108109,
+    "missing_ids": [],
+    "extra_ids": [
+      "n5",
+      "n7",
+      "n12",
+      "n13",
+      "n16",
+      "n17",
+      "n18"
+    ]
+  },
+  "centroid_permil": {
+    "median": 3.2015621187164243,
+    "p90": 11.46570448667294
+  },
+  "iou": {
+    "median": 0.8751680430190129,
+    "below_05_count": 1,
+    "below_05_ratio": 0.06666666666666667
+  },
+  "role": {
+    "confusion": {
+      "default": {
+        "default": 11,
+        "emphasis": 1
+      },
+      "emphasis": {
+        "default": 1
+      },
+      "phase": {
+        "phase": 2
+      }
+    },
+    "errors": 2,
+    "error_rate": 0.13333333333333333,
+    "mismatches": [
+      {
+        "gold_id": "n10",
+        "rec_id": "n14",
+        "gold_role": "emphasis",
+        "rec_role": "default"
+      },
+      {
+        "gold_id": "n12",
+        "rec_id": "n19",
+        "gold_role": "default",
+        "rec_role": "emphasis"
+      }
+    ]
+  },
+  "edges": {
+    "golden_count": 9,
+    "rec_count": 11,
+    "matched": 8,
+    "recall": 0.8888888888888888,
+    "precision": 0.7272727272727273,
+    "missing_ids": [
+      "e7"
+    ],
+    "extra_ids": [
+      "e8",
+      "e10",
+      "e11"
+    ]
+  },
+  "diff": {
+    "missing_boxes": 0,
+    "extra_boxes": 7,
+    "missing_edges": 1,
+    "extra_edges": 3,
+    "text_mismatch": 7,
+    "total": 18
+  },
+  "pairs": [
+    {
+      "gold_id": "n1",
+      "rec_id": "n1",
+      "gold_text": "Data Set",
+      "rec_text": "Data set",
+      "text_match": true,
+      "centroid_dist_permil": 1.12,
+      "iou": 0.8978,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n2",
+      "rec_id": "n2",
+      "gold_text": "{(o_t,a_t,r_t)_t=k^L+k}_i=1^B",
+      "rec_text": "",
+      "text_match": false,
+      "centroid_dist_permil": 3.91,
+      "iou": 0.8535,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n3",
+      "rec_id": "n3",
+      "gold_text": "Loss 계산 (latent overshooting)",
+      "rec_text": "Loss 계산 (latent overshooting)",
+      "text_match": true,
+      "centroid_dist_permil": 61.0,
+      "iou": 0.3614,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n4",
+      "rec_id": "n4",
+      "gold_text": "θ 업데이트",
+      "rec_text": "θ 업데이트",
+      "text_match": true,
+      "centroid_dist_permil": 3.04,
+      "iou": 0.7603,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n5",
+      "rec_id": "n6",
+      "gold_text": "latent overshooting loss 수식 (7)",
+      "rec_text": "",
+      "text_match": false,
+      "centroid_dist_permil": 4.95,
+      "iou": 0.853,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n6",
+      "rec_id": "n8",
+      "gold_text": "(c) Recurrent state-space model (RSSM) figure",
+      "rec_text": "",
+      "text_match": false,
+      "centroid_dist_permil": 4.53,
+      "iou": 0.8752,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n7",
+      "rec_id": "n9",
+      "gold_text": "o1",
+      "rec_text": "o_1",
+      "text_match": true,
+      "centroid_dist_permil": 5.0,
+      "iou": 0.6203,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n8",
+      "rec_id": "n10",
+      "gold_text": "Encoder q(s_t|o_<=t, a_<t)",
+      "rec_text": "Encoder\nq(s_t | o_≤t, a_<t)",
+      "text_match": true,
+      "centroid_dist_permil": 0.5,
+      "iou": 0.971,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n9",
+      "rec_id": "n11",
+      "gold_text": "Planner a_t = Planner(s_t, P)",
+      "rec_text": "Planner\na_t = Planner(s_t, p)",
+      "text_match": true,
+      "centroid_dist_permil": 2.69,
+      "iou": 0.9258,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n10",
+      "rec_id": "n14",
+      "gold_text": "action 선별 환경에서 상상롤아웃해서 v_t^k, o_t+1^k 고르기 a_t R번 반복",
+      "rec_text": "action 반복\n환경이랑 상호작용해서\nr_t^k, o_{t+1}^k 구하기\na_t R번 반복",
+      "text_match": false,
+      "centroid_dist_permil": 2.0,
+      "iou": 0.9398,
+      "gold_role": "emphasis",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n11",
+      "rec_id": "n15",
+      "gold_text": "v_t, o_t+1 <- Σ_k=1^R v_t^k, o_t+1^R",
+      "rec_text": "r_t, o_{t+1} ← Σ_{k=1}^{R} r_t^k, o_{t+1}^R",
+      "text_match": false,
+      "centroid_dist_permil": 11.77,
+      "iou": 0.6822,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n12",
+      "rec_id": "n19",
+      "gold_text": "{(o_t,a_t,r_t)}_t=1^T",
+      "rec_text": "",
+      "text_match": false,
+      "centroid_dist_permil": 11.01,
+      "iou": 0.558,
+      "gold_role": "default",
+      "rec_role": "emphasis"
+    },
+    {
+      "gold_id": "g1",
+      "rec_id": "g1",
+      "gold_text": "1. Model fitting (World model 3종)",
+      "rec_text": "1. Model fitting (World model 학습)",
+      "text_match": false,
+      "centroid_dist_permil": 1.12,
+      "iou": 0.9867,
+      "gold_role": "phase",
+      "rec_role": "phase"
+    },
+    {
+      "gold_id": "g2",
+      "rec_id": "g2",
+      "gold_text": "2. Data Collection",
+      "rec_text": "2. Data Collection",
+      "text_match": true,
+      "centroid_dist_permil": 3.2,
+      "iou": 0.9736,
+      "gold_role": "phase",
+      "rec_role": "phase"
+    },
+    {
+      "gold_id": "g3",
+      "rec_id": "g3",
+      "gold_text": "",
+      "rec_text": "",
+      "text_match": true,
+      "centroid_dist_permil": 1.5,
+      "iou": 0.9882,
+      "gold_role": "default",
+      "rec_role": "default"
+    }
+  ]
+}
