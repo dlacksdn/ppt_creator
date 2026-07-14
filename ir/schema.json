@@ -4,30 +4,94 @@
   "title": "sketch2pptx IR v0.1 (M0a)",
   "description": "좌표계 = 등방 정규화 정수: 장축 0~1000, 단축 0~round(1000*단축/장축). canvas는 종횡비만 보유.",
   "type": "object",
-  "required": ["canvas", "nodes", "edges", "containers", "annotations"],
+  "required": [
+    "canvas",
+    "nodes",
+    "edges",
+    "containers",
+    "annotations"
+  ],
   "additionalProperties": false,
   "properties": {
     "canvas": {
       "type": "object",
-      "required": ["aspect"],
+      "required": [
+        "aspect"
+      ],
       "additionalProperties": false,
       "properties": {
-        "aspect": { "type": "string", "pattern": "^[0-9]+:[0-9]+$" }
+        "aspect": {
+          "type": "string",
+          "pattern": "^[0-9]+:[0-9]+$"
+        }
       }
     },
     "nodes": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "kind", "bbox", "text", "role"],
+        "required": [
+          "id",
+          "kind",
+          "bbox",
+          "text",
+          "role"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^n[0-9]+$" },
-          "kind": { "enum": ["box", "placeholder"] },
-          "bbox": { "$ref": "#/definitions/bbox" },
-          "text": { "type": "string" },
-          "role": { "enum": ["default", "emphasis", "input", "output", "phase", "unknown"] },
-          "placeholder_kind": { "enum": ["equation", "icon"] }
+          "id": {
+            "type": "string",
+            "pattern": "^n[0-9]+$"
+          },
+          "kind": {
+            "enum": [
+              "box",
+              "placeholder"
+            ]
+          },
+          "bbox": {
+            "$ref": "#/definitions/bbox"
+          },
+          "text": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "default",
+              "emphasis",
+              "input",
+              "output",
+              "phase",
+              "unknown"
+            ]
+          },
+          "placeholder_kind": {
+            "enum": [
+              "equation",
+              "icon"
+            ]
+          },
+          "intent_row": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "eval 전용(골든만): 같은 값 = 의도된 가로줄"
+          },
+          "intent_col": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "eval 전용(골든만): 같은 값 = 의도된 세로줄"
+          },
+          "size_class": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "eval 전용(골든만): 같은 값 = 의도된 동일 크기"
+          }
         }
       }
     },
@@ -35,15 +99,41 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "from", "to", "arrow", "style"],
+        "required": [
+          "id",
+          "from",
+          "to",
+          "arrow",
+          "style"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^e[0-9]+$" },
-          "from": { "type": "string" },
-          "to": { "type": "string" },
-          "arrow": { "enum": ["single", "double", "none"] },
-          "label": { "type": "string" },
-          "style": { "enum": ["straight", "elbow"] }
+          "id": {
+            "type": "string",
+            "pattern": "^e[0-9]+$"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "arrow": {
+            "enum": [
+              "single",
+              "double",
+              "none"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "style": {
+            "enum": [
+              "straight",
+              "elbow"
+            ]
+          }
         }
       }
     },
@@ -51,14 +141,62 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "bbox", "title", "children", "role"],
+        "required": [
+          "id",
+          "bbox",
+          "title",
+          "children",
+          "role"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^g[0-9]+$" },
-          "bbox": { "$ref": "#/definitions/bbox" },
-          "title": { "type": "string" },
-          "children": { "type": "array", "items": { "type": "string" } },
-          "role": { "enum": ["default", "emphasis", "input", "output", "phase", "unknown"] }
+          "id": {
+            "type": "string",
+            "pattern": "^g[0-9]+$"
+          },
+          "bbox": {
+            "$ref": "#/definitions/bbox"
+          },
+          "title": {
+            "type": "string"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "role": {
+            "enum": [
+              "default",
+              "emphasis",
+              "input",
+              "output",
+              "phase",
+              "unknown"
+            ]
+          },
+          "intent_row": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "eval 전용(골든만): 같은 값 = 의도된 가로줄"
+          },
+          "intent_col": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "eval 전용(골든만): 같은 값 = 의도된 세로줄"
+          },
+          "size_class": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "eval 전용(골든만): 같은 값 = 의도된 동일 크기"
+          }
         }
       }
     },
@@ -66,14 +204,35 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "kind", "bbox"],
+        "required": [
+          "id",
+          "kind",
+          "bbox"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^a[0-9]+$" },
-          "kind": { "enum": ["legend", "note"] },
-          "bbox": { "$ref": "#/definitions/bbox" },
-          "items": { "type": "array", "items": { "type": "string" } },
-          "text": { "type": "string" }
+          "id": {
+            "type": "string",
+            "pattern": "^a[0-9]+$"
+          },
+          "kind": {
+            "enum": [
+              "legend",
+              "note"
+            ]
+          },
+          "bbox": {
+            "$ref": "#/definitions/bbox"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "text": {
+            "type": "string"
+          }
         }
       }
     }
@@ -83,7 +242,11 @@
       "type": "array",
       "minItems": 4,
       "maxItems": 4,
-      "items": { "type": "integer", "minimum": 0, "maximum": 1000 },
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 1000
+      },
       "description": "[x, y, w, h] 좌상단 기준, 등방 정규화 정수 (장축 0~1000)"
     }
   }

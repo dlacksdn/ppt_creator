@@ -1,0 +1,512 @@
+{
+  "rec_path": "ir_out/example-01.hint.ir.json",
+  "golden_path": "tests/fixtures/example-01.golden.ir.json",
+  "boxes": {
+    "golden_count": 40,
+    "rec_count": 40,
+    "matched": 40,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "missing_ids": [],
+    "extra_ids": []
+  },
+  "centroid_permil": {
+    "median": 2.23606797749979,
+    "p90": 6.266192594583843
+  },
+  "iou": {
+    "median": 0.8881605811179644,
+    "below_05_count": 1,
+    "below_05_ratio": 0.025
+  },
+  "role": {
+    "confusion": {
+      "default": {
+        "default": 30,
+        "emphasis": 1
+      },
+      "emphasis": {
+        "emphasis": 2
+      },
+      "input": {
+        "input": 2
+      },
+      "output": {
+        "output": 1
+      },
+      "phase": {
+        "phase": 4
+      }
+    },
+    "errors": 1,
+    "error_rate": 0.025,
+    "mismatches": [
+      {
+        "gold_id": "g5",
+        "rec_id": "g5",
+        "gold_role": "default",
+        "rec_role": "emphasis"
+      }
+    ]
+  },
+  "edges": {
+    "golden_count": 22,
+    "rec_count": 22,
+    "matched": 22,
+    "recall": 1.0,
+    "precision": 1.0,
+    "missing_ids": [],
+    "extra_ids": []
+  },
+  "diff": {
+    "missing_boxes": 0,
+    "extra_boxes": 0,
+    "missing_edges": 0,
+    "extra_edges": 0,
+    "text_mismatch": 0,
+    "total": 0
+  },
+  "pairs": [
+    {
+      "gold_id": "n1",
+      "rec_id": "n1",
+      "gold_text": "MineDojo Simulator",
+      "rec_text": "MineDojo Simulator",
+      "text_match": true,
+      "centroid_dist_permil": 1.0,
+      "iou": 0.9231,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n2",
+      "rec_id": "n2",
+      "gold_text": "Unbiased Atomic Actions (uniform dist)",
+      "rec_text": "Unbiased Atomic Actions (uniform dist.)",
+      "text_match": true,
+      "centroid_dist_permil": 0.71,
+      "iou": 0.9401,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n3",
+      "rec_id": "n3",
+      "gold_text": "MiniCPM",
+      "rec_text": "MiniCPM",
+      "text_match": true,
+      "centroid_dist_permil": 0.71,
+      "iou": 0.9327,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n4",
+      "rec_id": "n4",
+      "gold_text": "GF-Minecraft Dataset (video, keyboard K, Mouse M, prompt P)",
+      "rec_text": "GF-Minecraft Dataset (video, keyboard K, Mouse M, Prompt P)",
+      "text_match": true,
+      "centroid_dist_permil": 2.5,
+      "iou": 0.8649,
+      "gold_role": "emphasis",
+      "rec_role": "emphasis"
+    },
+    {
+      "gold_id": "n5",
+      "rec_id": "n5",
+      "gold_text": "Backbone Feature F (intermediate latent - prompt already fused)",
+      "rec_text": "Backbone Feature F (intermediate latent - prompt already fused)",
+      "text_match": true,
+      "centroid_dist_permil": 1.12,
+      "iou": 0.9607,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n6",
+      "rec_id": "n6",
+      "gold_text": "Mouse Movement M",
+      "rec_text": "Mouse Movement M",
+      "text_match": true,
+      "centroid_dist_permil": 4.61,
+      "iou": 0.6515,
+      "gold_role": "input",
+      "rec_role": "input"
+    },
+    {
+      "gold_id": "n7",
+      "rec_id": "n7",
+      "gold_text": "Grouping (w=3)",
+      "rec_text": "Grouping (w=3)",
+      "text_match": true,
+      "centroid_dist_permil": 4.61,
+      "iou": 0.6786,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n8",
+      "rec_id": "n8",
+      "gold_text": "Repeat (align length)",
+      "rec_text": "Repeat (align length)",
+      "text_match": true,
+      "centroid_dist_permil": 5.0,
+      "iou": 0.6972,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n9",
+      "rec_id": "n9",
+      "gold_text": "Concatenate with F",
+      "rec_text": "Concatenate with F",
+      "text_match": true,
+      "centroid_dist_permil": 3.35,
+      "iou": 0.7224,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n10",
+      "rec_id": "n10",
+      "gold_text": "MLP -> Temporal Self-Attention",
+      "rec_text": "MLP → Temporal Self-Attention",
+      "text_match": true,
+      "centroid_dist_permil": 0.71,
+      "iou": 0.955,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n11",
+      "rec_id": "n11",
+      "gold_text": "Keyboard Action K",
+      "rec_text": "Keyboard Action K",
+      "text_match": true,
+      "centroid_dist_permil": 1.12,
+      "iou": 0.7877,
+      "gold_role": "input",
+      "rec_role": "input"
+    },
+    {
+      "gold_id": "n12",
+      "rec_id": "n12",
+      "gold_text": "Embed + Pos. Encoding",
+      "rec_text": "Embed + Pos. Encoding",
+      "text_match": true,
+      "centroid_dist_permil": 1.0,
+      "iou": 0.9067,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n13",
+      "rec_id": "n13",
+      "gold_text": "Grouping (w=3)",
+      "rec_text": "Grouping (w=3)",
+      "text_match": true,
+      "centroid_dist_permil": 1.12,
+      "iou": 0.7274,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n14",
+      "rec_id": "n14",
+      "gold_text": "Cross-Attention (K=key/Value, F=Query)",
+      "rec_text": "Cross-Attention (K=Key/Value, F=Query)",
+      "text_match": true,
+      "centroid_dist_permil": 1.0,
+      "iou": 0.8976,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n15",
+      "rec_id": "n15",
+      "gold_text": "Fused Feature",
+      "rec_text": "Fused Feature",
+      "text_match": true,
+      "centroid_dist_permil": 7.91,
+      "iou": 0.4581,
+      "gold_role": "output",
+      "rec_role": "output"
+    },
+    {
+      "gold_id": "n16",
+      "rec_id": "n16",
+      "gold_text": "Open-Domain Data (internet videos, no action labels)",
+      "rec_text": "Open-Domain Data (internet videos, no action labels)",
+      "text_match": true,
+      "centroid_dist_permil": 4.03,
+      "iou": 0.8088,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n17",
+      "rec_id": "n21",
+      "gold_text": "Base Model",
+      "rec_text": "Base Model",
+      "text_match": true,
+      "centroid_dist_permil": 3.0,
+      "iou": 0.7692,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n18",
+      "rec_id": "n17",
+      "gold_text": "GF-Minecraft (action-labeled)",
+      "rec_text": "GF-Minecraft (action-labeled)",
+      "text_match": true,
+      "centroid_dist_permil": 1.0,
+      "iou": 0.8947,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n19",
+      "rec_id": "n22",
+      "gold_text": "Base Model",
+      "rec_text": "Base Model",
+      "text_match": true,
+      "centroid_dist_permil": 2.24,
+      "iou": 0.8697,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n20",
+      "rec_id": "n23",
+      "gold_text": "LoRA",
+      "rec_text": "LoRA",
+      "text_match": true,
+      "centroid_dist_permil": 2.06,
+      "iou": 0.9055,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n21",
+      "rec_id": "n18",
+      "gold_text": "GF-Minecraft (action-labeled)",
+      "rec_text": "GF-Minecraft (action-labeled)",
+      "text_match": true,
+      "centroid_dist_permil": 2.24,
+      "iou": 0.8816,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n22",
+      "rec_id": "n24",
+      "gold_text": "Base Model",
+      "rec_text": "Base Model",
+      "text_match": true,
+      "centroid_dist_permil": 1.5,
+      "iou": 0.8584,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n23",
+      "rec_id": "n25",
+      "gold_text": "LoRA",
+      "rec_text": "LoRA",
+      "text_match": true,
+      "centroid_dist_permil": 1.5,
+      "iou": 0.8526,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n24",
+      "rec_id": "n26",
+      "gold_text": "Action Control Module",
+      "rec_text": "Action Control Module",
+      "text_match": true,
+      "centroid_dist_permil": 3.04,
+      "iou": 0.7895,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n25",
+      "rec_id": "n20",
+      "gold_text": "keyboard / mouse",
+      "rec_text": "Keyboard/Mouse",
+      "text_match": true,
+      "centroid_dist_permil": 6.18,
+      "iou": 0.5152,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n26",
+      "rec_id": "n19",
+      "gold_text": "Open-Domain Prompt (new unseen scene)",
+      "rec_text": "Open-Domain Prompt (new unseen scene)",
+      "text_match": true,
+      "centroid_dist_permil": 4.27,
+      "iou": 0.7881,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n27",
+      "rec_id": "n27",
+      "gold_text": "Base Model",
+      "rec_text": "Base Model",
+      "text_match": true,
+      "centroid_dist_permil": 3.61,
+      "iou": 0.7337,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n28",
+      "rec_id": "n28",
+      "gold_text": "LoRA",
+      "rec_text": "LoRA",
+      "text_match": true,
+      "centroid_dist_permil": 2.06,
+      "iou": 0.9079,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n29",
+      "rec_id": "n29",
+      "gold_text": "Action Control Module",
+      "rec_text": "Action Control Module",
+      "text_match": true,
+      "centroid_dist_permil": 0.0,
+      "iou": 1.0,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "n30",
+      "rec_id": "n30",
+      "gold_text": "Output Action-Controllable Open-Domain Game Video",
+      "rec_text": "Output: Action-Controllable Open-Domain Game Video",
+      "text_match": true,
+      "centroid_dist_permil": 18.45,
+      "iou": 0.5045,
+      "gold_role": "emphasis",
+      "rec_role": "emphasis"
+    },
+    {
+      "gold_id": "g1",
+      "rec_id": "g1",
+      "gold_text": "",
+      "rec_text": "",
+      "text_match": true,
+      "centroid_dist_permil": 0.5,
+      "iou": 0.9623,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "g2",
+      "rec_id": "g2",
+      "gold_text": "WHAT : Model Architecture (Structure only)",
+      "rec_text": "WHAT : Model Architecture (Structure only)",
+      "text_match": true,
+      "centroid_dist_permil": 5.85,
+      "iou": 0.9531,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "g3",
+      "rec_id": "g3",
+      "gold_text": "Data Source : GF-Minecraft",
+      "rec_text": "Data Source : GF-Minecraft",
+      "text_match": true,
+      "centroid_dist_permil": 5.52,
+      "iou": 0.9301,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "g4",
+      "rec_id": "g4",
+      "gold_text": "Latent Video Diffusion Transformer (VAE compression r=4)",
+      "rec_text": "Latent Video Diffusion Transformer (VAE compression r=4)",
+      "text_match": true,
+      "centroid_dist_permil": 2.5,
+      "iou": 0.9655,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "g5",
+      "rec_id": "g5",
+      "gold_text": "Action Control Module",
+      "rec_text": "Action Control Module",
+      "text_match": true,
+      "centroid_dist_permil": 14.92,
+      "iou": 0.7965,
+      "gold_role": "default",
+      "rec_role": "emphasis"
+    },
+    {
+      "gold_id": "g6",
+      "rec_id": "g6",
+      "gold_text": "How : Multi-Phase Training then inference (Style-Action Decoupling)",
+      "rec_text": "HOW : Multi-Phase Training then Inference (Style-Action Decoupling)",
+      "text_match": true,
+      "centroid_dist_permil": 7.0,
+      "iou": 0.9429,
+      "gold_role": "default",
+      "rec_role": "default"
+    },
+    {
+      "gold_id": "g7",
+      "rec_id": "g7",
+      "gold_text": "Phase #0 Pre-train",
+      "rec_text": "Phase #0 Pre-train",
+      "text_match": true,
+      "centroid_dist_permil": 0.5,
+      "iou": 0.9922,
+      "gold_role": "phase",
+      "rec_role": "phase"
+    },
+    {
+      "gold_id": "g8",
+      "rec_id": "g8",
+      "gold_text": "Phase #1 Train LoRA",
+      "rec_text": "Phase #1 Train LoRA",
+      "text_match": true,
+      "centroid_dist_permil": 1.5,
+      "iou": 0.9771,
+      "gold_role": "phase",
+      "rec_role": "phase"
+    },
+    {
+      "gold_id": "g9",
+      "rec_id": "g9",
+      "gold_text": "Phase #2 Train Action Module",
+      "rec_text": "Phase #2 Train Action Module",
+      "text_match": true,
+      "centroid_dist_permil": 1.8,
+      "iou": 0.9638,
+      "gold_role": "phase",
+      "rec_role": "phase"
+    },
+    {
+      "gold_id": "g10",
+      "rec_id": "g10",
+      "gold_text": "Phase #3 Inference",
+      "rec_text": "Phase #3 Inference",
+      "text_match": true,
+      "centroid_dist_permil": 3.16,
+      "iou": 0.9357,
+      "gold_role": "phase",
+      "rec_role": "phase"
+    }
+  ]
+}

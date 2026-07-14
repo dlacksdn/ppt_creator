@@ -313,6 +313,11 @@ def normalize(ir, mode="b1", params=None):
     return out
 
 
+# 임계 비대칭 문서화 (2026-07-15 적대검증 MINOR 반영): 미교정 판정 visual_tol=6‰,
+# 과교정 판정 move_tol=12‰ — 정규화가 무의도축에 최대 ~12‰의 새 어긋남을 벌점 없이
+# 주입할 수 있는 비대칭이다. move_tol=12는 grid_step=8 스냅의 정당한 이동을 면책하기
+# 위한 값(실측 사각지대 [8,12) 이동은 골든당 1개, 게이트 결과 불변). 조이려면 grid_step과
+# 연동해 move_tol=grid_step+4 형태로 낮출 것.
 def count_corrections(golden_full_ir, normalized_ir, visual_tol=6, move_tol=12):
     """intent 라벨 기준 미교정/과교정 카운트 (모듈 docstring의 반환 구조 참조).
 

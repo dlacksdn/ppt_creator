@@ -17,7 +17,10 @@ role 필드는 스텁에서 스타일에 반영하지 않는다 (스타일 confi
 from pptx.enum.dml import MSO_LINE
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
+import math
+
 from pptx.dml.color import RGBColor
+from pptx.enum.text import MSO_AUTO_SIZE
 from pptx.util import Emu, Pt
 
 BLACK = RGBColor(0, 0, 0)
@@ -35,9 +38,53 @@ def apply_base_style(shape):
     shape.line.width = Pt(LINE_PT)
 
 
-def set_text(text_frame, text, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE):
-    """text_frame에 검정 10pt 텍스트 설정. \\n은 문단 분리로 처리된다."""
+def _char_em(ch):
+    """문자 1개의 대략적 폭 (em 단위). 한글/CJK=1.0, 라틴 소문자≈0.52 등."""
+    o = ord(ch)
+    if 0xAC00 <= o <= 0xD7A3 or 0x4E00 <= o <= 0x9FFF or 0x3000 <= o <= 0x30FF:
+        return 1.0  # 한글·한자·가나·CJK 기호
+    if ch == " ":
+        return 0.28
+    if ch.isupper():
+        return 0.66
+    if ch.isdigit():
+        return 0.55
+    if ch.islower():
+        return 0.52
+    return 0.45  # 구두점·기타
+
+
+def fit_font_pt(text, w_emu, h_emu, max_pt=FONT_PT, min_pt=5):
+    """박스 안에 텍스트가 들어가는 최대 폰트 크기(pt)를 계산한다.
+
+    모델: 총 폭(em)×폰트 = 필요 폭 → 줄 수 = ceil(필요폭×1.15(단어단위 감김 슬랙)/가용폭),
+    적합 조건 = 줄 수 × 폰트 × 1.22(행간) ≤ 가용 높이. min_pt에도 안 맞으면 min_pt 반환
+    (경미한 오버플로 허용 — 판정 시 카운트 제외 대상인 스타일 문제로 분류).
+    """
+    if not text:
+        return max_pt
+    margin_pt = 0.75
+    avail_w = max(w_emu / 12700.0 - 2 * margin_pt, 4.0)
+    avail_h = max(h_emu / 12700.0 - 2 * margin_pt, 4.0)
+    # 강제 개행(\n)은 문단 분리이므로 문단별로 감김 줄 수를 계산해 합산한다
+    para_ems = [sum(_char_em(c) for c in p) for p in text.split("\n")]
+    for f in range(int(max_pt), int(min_pt) - 1, -1):
+        lines = sum(max(1, math.ceil(em * f * 1.15 / avail_w)) for em in para_ems)
+        if lines * f * 1.22 <= avail_h:
+            return f
+    return min_pt
+
+
+def set_text(text_frame, text, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE,
+             w_emu=None, h_emu=None):
+    """text_frame에 검정 텍스트 설정. \\n은 문단 분리로 처리된다.
+
+    w_emu·h_emu가 주어지면 fit_font_pt로 박스에 맞는 크기를 자동 계산하고,
+    없으면 FONT_PT(10pt) 고정 — 텍스트 오버플로 방지 (2026-07-15 사용자 보고 수정).
+    """
+    size_pt = fit_font_pt(text, w_emu, h_emu) if (w_emu and h_emu) else FONT_PT
     text_frame.word_wrap = True
+    text_frame.auto_size = MSO_AUTO_SIZE.NONE
     text_frame.vertical_anchor = anchor
     text_frame.margin_left = _TF_MARGIN
     text_frame.margin_right = _TF_MARGIN
@@ -47,7 +94,7 @@ def set_text(text_frame, text, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE):
     for para in text_frame.paragraphs:
         para.alignment = align
         for run in para.runs:
-            run.font.size = Pt(FONT_PT)
+            run.font.size = Pt(size_pt)
             run.font.color.rgb = BLACK
 
 
@@ -55,7 +102,8 @@ def add_textbox(slide, text, left, top, width, height,
                 align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE):
     """테두리·채움 없는 순수 텍스트박스 (엣지 라벨·legend 라벨·note 공용)."""
     box = slide.shapes.add_textbox(left, top, width, height)
-    set_text(box.text_frame, text, align=align, anchor=anchor)
+    set_text(box.text_frame, text, align=align, anchor=anchor,
+             w_emu=width, h_emu=height)
     return box
 
 
@@ -75,7 +123,7 @@ def add_node(slide, node, tr):
         marker = {"equation": "[수식]", "icon": "[아이콘]"}.get(
             node.get("placeholder_kind"), "[자리]")
         text = f"{marker} {text}".strip()
-    set_text(shape.text_frame, text)
+    set_text(shape.text_frame, text, w_emu=width, h_emu=height)
     return shape
 
 
@@ -89,7 +137,8 @@ def add_container(slide, container, tr):
     shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, left, top, width, height)
     apply_base_style(shape)
     set_text(shape.text_frame, container.get("title", ""),
-             align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP)
+             align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP,
+             w_emu=width, h_emu=height)
     return shape
 
 

@@ -22,8 +22,15 @@ intent_row/intent_col 라벨 대비 pair-level F1이 σ=1..30‰ 구간에서
 1. 붕괴 오차 측정: 스윕 중 클러스터링 tol은 normalize의 **형태 기반 기본값**
    max(6‰, 0.30×노드 높이 중앙값)을 쓴다. 이 값은 붕괴 오차와 무관하게
    골든의 박스 크기에서만 나오므로, 도출 대상(붕괴 기반 tol)을 참조하지 않는다.
-2. row/col_align_tol = 붕괴 오차 × 0.7 로 고정.
-3. 좌표 허용치 X = tol × 0.5.  →  X < tol < 붕괴 오차 위계 보장.
+2. row/col_align_tol = 붕괴 오차 × 0.7 로 도출 (참고치).
+3. 좌표 허용치 X = tol × 0.5 로 도출 (참고치).
+
+⚠ 도출값의 한계 (2026-07-15 적대검증 MAJOR 반영): 이 도출 tol은 fixed point가
+아니다 — 붕괴σ는 형태기반 tol로 측정되므로, 도출 tol(더 작은 값)을 실제 클러스터링에
+쓰면 의도그룹 내부 스프레드(최대갭 ~7.5‰)가 산산조각나 σ=1에서 F1이 붕괴한다(실측
+0.75/0.42). 계획 v6.1의 "X < tol < 붕괴σ" 공식은 산포·그룹간격이 겹치는 실제 손그림
+데이터에서 성립하지 않는다. **운용 tol = 형태기반 기본값 유지**, 도출값은 미검증
+참고치로만 기록한다 (출력 recommended.warning 참조).
 
 측정 규약
 ---------
@@ -55,7 +62,7 @@ intent_row/intent_col 라벨 대비 pair-level F1이 σ=1..30‰ 구간에서
       "derived": {"row_col_align_tol": 0.7s, "coord_tol_X": 0.35s} | null
     }, ...
   },
-  "recommended": {  # 보수적 채택: 골든들 중 최소 붕괴 σ 기준
+  "recommended": {  # 주의: 도출값은 미검증 참고치 (warning 필드 참조), 운용 tol 아님
     "collapse_sigma": s, "row_col_align_tol": t, "coord_tol_X": x }
 }
 """
@@ -239,9 +246,18 @@ def main(argv=None):
         t = c * args.tol_factor
         result["recommended"] = {
             "collapse_sigma": c,
-            "row_col_align_tol": round(t, 2),
-            "coord_tol_X": round(t * args.x_factor, 2),
-            "hierarchy_note": "X < tol < 붕괴σ",
+            "row_col_align_tol_UNVERIFIED": round(t, 2),
+            "coord_tol_X_UNVERIFIED": round(t * args.x_factor, 2),
+            "warning": (
+                "이 도출값은 운용 tol이 아니다 (2026-07-15 적대검증 MAJOR 실증): "
+                "붕괴σ는 형태기반 tol로 측정된 것이라 '붕괴σ×0.7'을 실제 클러스터링 tol로 "
+                "쓰면 의도그룹 내부 스프레드(ex01 acm_top 10.5‰, 최대갭 7.5‰)를 산산조각내 "
+                "σ=1에서 즉시 붕괴한다(F1 0.75/0.42). 계획 v6.1의 'X < tol < 붕괴σ' 도출 "
+                "공식은 실데이터에서 fixed point가 아님 — 산포와 그룹간격이 겹치는 손그림 "
+                "특성상 성립 불가. 운용 tol은 형태기반(max(6, 0.30×h_med))을 유지하고, "
+                "하한은 의도그룹 내부 최대갭(≥7.5‰)이 지배한다. 근본 해법 = 컨테이너 스코프 "
+                "클러스터링 (M1 백로그, gates-2.json 참조)."
+            ),
         }
     else:
         result["recommended"] = None

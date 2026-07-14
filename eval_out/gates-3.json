@@ -1,0 +1,86 @@
+{
+ "note": "골든 v1.2(2026-07-15: schema.json 확장필드, min-golden g5 포함관계 정정, full-golden n30 원복) 기준 재산출. gates-2 대체.",
+ "gate1": {
+  "ex01": {
+   "uncorrected_pairs": 6,
+   "pairs_detail": [
+    {
+     "axis": "row",
+     "group": "acm_top",
+     "ids": [
+      "n10",
+      "n15"
+     ],
+     "dev": 12.0
+    },
+    {
+     "axis": "row",
+     "group": "acm_top",
+     "ids": [
+      "n15",
+      "n6"
+     ],
+     "dev": 12.0
+    },
+    {
+     "axis": "row",
+     "group": "acm_top",
+     "ids": [
+      "n15",
+      "n7"
+     ],
+     "dev": 12.0
+    },
+    {
+     "axis": "row",
+     "group": "acm_top",
+     "ids": [
+      "n15",
+      "n8"
+     ],
+     "dev": 12.0
+    },
+    {
+     "axis": "row",
+     "group": "acm_top",
+     "ids": [
+      "n15",
+      "n9"
+     ],
+     "dev": 11.5
+    },
+    {
+     "axis": "col",
+     "group": "sections",
+     "ids": [
+      "g2",
+      "g6"
+     ],
+     "dev": 8.0
+    }
+   ],
+   "offending_boxes": [
+    "n15"
+   ],
+   "overcorrected": [
+    "n4"
+   ],
+   "problem_boxes": 2,
+   "total": 40,
+   "ratio": 0.05,
+   "pass_le_10pct": true
+  },
+  "ex02": {
+   "uncorrected_pairs": 0,
+   "pairs_detail": [],
+   "offending_boxes": [],
+   "overcorrected": [
+    "n6"
+   ],
+   "problem_boxes": 1,
+   "total": 15,
+   "ratio": 0.067,
+   "pass_le_10pct": true
+  }
+ }
+}
