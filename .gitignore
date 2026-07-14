@@ -1,2 +1,4 @@
 .omc/state/
 _thinking/raws/
+.venv/
+__pycache__/
